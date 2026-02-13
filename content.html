@@ -32,6 +32,35 @@ background-size:60px 60px;
 background-position:-5px -5px;
 }
 
+/* LOADER */
+.loader {
+ border: 0 solid transparent;
+ border-radius: 50%;
+ width: 100px;
+ height: 100px;
+ position: relative;
+}
+
+.loader::before,
+.loader::after {
+ content: '';
+ border: 7px solid #ccc;
+ border-radius: 50%;
+ width: inherit;
+ height: inherit;
+ position: absolute;
+ animation: loader 1.5s linear infinite;
+ opacity: 0;
+}
+
+.loader::before { animation-delay: .7s; }
+
+@keyframes loader {
+ 0% { transform: scale(1); opacity: 0; }
+ 50% { opacity: 1; }
+ 100% { transform: scale(0); opacity: 0; }
+}
+
 /* TELEGRAM FLOAT */
 .telegram-float{
 position:fixed;
@@ -96,6 +125,11 @@ transition:.3s;
 
 <div class="bg-grid"></div>
 
+<!-- LOADING OVERLAY -->
+<div id="loadingOverlay" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-[9999]">
+  <div class="loader"></div>
+</div>
+
 <!-- HEADER -->
 <header class="w-full flex justify-between items-center px-8 py-4 backdrop-blur-md bg-black/40 fixed top-0 z-50">
   <h1 class="text-xl font-bold tracking-wider">SUBIN DEV</h1>
@@ -116,26 +150,35 @@ transition:.3s;
   </p>
 </section>
 
-<!-- MAIN CARD -->
-<main class="min-h-[70vh] flex items-center justify-center">
+<!-- MAIN -->
+<main class="min-h-[70vh] flex flex-wrap gap-10 items-center justify-center">
 
+<!-- CARD 1 -->
 <a href="https://drive.google.com/file/d/15TbYecVSrg2627EMZIljiI8PO57ikC4u/view"
-target="_blank"
-class="relative drop-shadow-xl w-56 h-72 overflow-hidden rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
+class="download-card relative drop-shadow-xl w-56 h-72 overflow-hidden rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
 
 <div class="absolute flex flex-col items-center justify-center text-white z-[1] opacity-95 rounded-2xl inset-1 bg-[#323132] gap-3">
-
-<img src="logo.jpg"
-class="w-24 h-24 object-cover rounded-xl shadow-lg">
-
+<img src="logo.jpg" class="w-24 h-24 object-cover rounded-xl shadow-lg">
 <h2 class="text-lg font-bold text-center px-2">
 MENU IOS<br>Ellen Cheat
 </h2>
-
 </div>
 
 <div class="absolute w-64 h-52 bg-white blur-[60px] -left-1/2 -top-1/2 opacity-40"></div>
+</a>
 
+<!-- CARD 2 -->
+<a href="https://drive.google.com/file/d/19Ec3GSNeqqdiGWpvOntYereicIe7t4w_/view"
+class="download-card relative drop-shadow-xl w-56 h-72 overflow-hidden rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
+
+<div class="absolute flex flex-col items-center justify-center text-white z-[1] opacity-95 rounded-2xl inset-1 bg-[#323132] gap-3">
+<img src="logo2.jpg" class="w-24 h-24 object-cover rounded-xl shadow-lg">
+<h2 class="text-lg font-bold text-center px-2">
+NO MENU IOS<br>HACK MAP
+</h2>
+</div>
+
+<div class="absolute w-64 h-52 bg-white blur-[60px] -left-1/2 -top-1/2 opacity-40"></div>
 </a>
 
 </main>
@@ -148,7 +191,7 @@ MENU IOS<br>Ellen Cheat
 <!-- TELEGRAM -->
 <ul class="telegram-float">
 <li class="icon-content">
-<a href="https://t.me/thiendetp" target="_blank">
+<a href="https://t.me/thendetp" target="_blank">
 <div class="filled"></div>
 <svg viewBox="0 0 100 100">
 <path d="M95,9.9c-1.3-1.1-3.4-1.2-7-0.1c-2.5,0.8-24.7,9.2-44.3,17.3c-17.6,7.3-31.9,13.7-33.6,14.5c-1.9,0.6-6,2.4-6.2,5.2
@@ -161,6 +204,23 @@ c3.4-14.8,6.1-27.8,8.3-38.7c2.1-10.7,3.8-21.2,4.8-26.8C96.3,13.5,96.5,11.2,95,9.
 </li>
 </ul>
 
+<script>
+const cards = document.querySelectorAll(".download-card");
+const overlay = document.getElementById("loadingOverlay");
+
+cards.forEach(card => {
+  card.addEventListener("click", function(e) {
+    e.preventDefault();
+    const url = this.href;
+    overlay.classList.remove("hidden");
+
+    setTimeout(() => {
+      window.open(url, "_blank");
+      overlay.classList.add("hidden");
+    }, 1500);
+  });
+});
+</script>
+
 </body>
 </html>
-
