@@ -24,10 +24,7 @@ position:fixed;
 inset:0;
 z-index:-1;
 background-color:#111;
-background-image:linear-gradient(
-32deg,
-rgba(8,8,8,0.74) 30px,
-transparent);
+background-image:linear-gradient(32deg, rgba(8,8,8,0.74) 30px, transparent);
 background-size:60px 60px;
 background-position:-5px -5px;
 }
@@ -140,6 +137,19 @@ transition:.3s;
   </nav>
 </header>
 
+<!-- NEW YEAR NOTICE -->
+<div id="newYearNotice"
+  class="fixed top-24 left-1/2 -translate-x-1/2 w-[90%] max-w-3xl flex items-center flex-row my-8 py-6 pl-12 pr-4 isolate bg-[#1d1e21] rounded-xl relative z-[999] shadow-2xl transition-opacity duration-500">
+
+  <div class="absolute w-1 h-4/5 bg-[#373c3d] left-6"></div>
+
+  <p class="text-[#9c9c9c] text-sm leading-relaxed">
+    <span class="font-semibold text-white">Xin Chào...</span>
+    Tôi là Subin — nhân dịp Tết đến tôi muốn gửi lời chúc Tết đến cho gia đình tất cả mọi người
+    một năm mới <span class="text-green-400 font-semibold">An Khang Thịnh Vượng</span> 🎉
+  </p>
+</div>
+
 <!-- HERO -->
 <section class="pt-32 text-center px-6">
   <h2 class="text-4xl font-bold mb-4">
@@ -153,21 +163,19 @@ transition:.3s;
 <!-- MAIN -->
 <main class="min-h-[70vh] flex flex-wrap gap-10 items-center justify-center">
 
-<!-- CARD 1 -->
-<a href="https://drive.google.com/file/d/15TbYecVSrg2627EMZIljiI8PO57ikC4u/view"
+<a href="https://drive.google.com/file/d/1kW8NNBSTP-BfUVPffCX_f_GvhLBU4qHK/view"
 class="download-card relative drop-shadow-xl w-56 h-72 overflow-hidden rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
 
 <div class="absolute flex flex-col items-center justify-center text-white z-[1] opacity-95 rounded-2xl inset-1 bg-[#323132] gap-3">
 <img src="logo.jpg" class="w-24 h-24 object-cover rounded-xl shadow-lg">
 <h2 class="text-lg font-bold text-center px-2">
-MENU IOS<br>Ellen Cheat
+MENU IOS<br>ELLEN CHEAT 1.5
 </h2>
 </div>
 
 <div class="absolute w-64 h-52 bg-white blur-[60px] -left-1/2 -top-1/2 opacity-40"></div>
 </a>
 
-<!-- CARD 2 -->
 <a href="https://drive.google.com/file/d/19Ec3GSNeqqdiGWpvOntYereicIe7t4w_/view"
 class="download-card relative drop-shadow-xl w-56 h-72 overflow-hidden rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
 
@@ -183,12 +191,10 @@ NO MENU IOS<br>HACK MAP
 
 </main>
 
-<!-- FOOTER -->
 <footer class="text-center py-6 opacity-60 text-sm">
 © Hack Chính Chủ Do Subin Làm.
 </footer>
 
-<!-- TELEGRAM -->
 <ul class="telegram-float">
 <li class="icon-content">
 <a href="https://t.me/thendetp" target="_blank">
@@ -220,6 +226,13 @@ cards.forEach(card => {
     }, 1500);
   });
 });
+
+/* AUTO HIDE NEW YEAR NOTICE */
+setTimeout(() => {
+  const notice = document.getElementById("newYearNotice");
+  notice.style.opacity = "0";
+  setTimeout(() => notice.remove(), 500);
+}, 10000);
 </script>
 
 </body>
