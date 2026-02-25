@@ -18,7 +18,6 @@ color:white;
 overflow-x:hidden;
 }
 
-/* GRID BACKGROUND */
 .bg-grid{
 position:fixed;
 inset:0;
@@ -29,7 +28,6 @@ background-size:60px 60px;
 background-position:-5px -5px;
 }
 
-/* LOADER */
 .loader {
  border: 0 solid transparent;
  border-radius: 50%;
@@ -57,70 +55,47 @@ background-position:-5px -5px;
  50% { opacity: 1; }
  100% { transform: scale(0); opacity: 0; }
 }
-
-/* TELEGRAM FLOAT */
-.telegram-float{
-position:fixed;
-bottom:20px;
-left:20px;
-list-style:none;
-}
-
-.icon-content{position:relative}
-
-.tooltip{
-position:absolute;
-top:-35px;
-left:50%;
-transform:translateX(-50%);
-color:#fff;
-padding:6px 10px;
-border-radius:5px;
-opacity:0;
-visibility:hidden;
-font-size:14px;
-transition:.3s;
-background:#0088cc;
-}
-
-.icon-content:hover .tooltip{
-opacity:1;
-visibility:visible;
-top:-45px;
-}
-
-.icon-content a{
-position:relative;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-width:55px;
-height:55px;
-border-radius:50%;
-background:#fff;
-transition:.3s;
-}
-
-.icon-content svg{width:30px;height:30px}
-
-.filled{
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-height:0;
-background:#0088cc;
-transition:.3s;
-}
-
-.icon-content a:hover .filled{height:100%}
 </style>
 </head>
 
 <body>
 
 <div class="bg-grid"></div>
+
+<!-- 🔥 NOTICE KEY (LEFT SIDE) -->
+<div id="keyNotice"
+class="fixed top-32 left-6 z-[9999] flex w-[90%] max-w-sm h-28 overflow-hidden bg-white shadow-2xl rounded-xl transition-all duration-500">
+
+  <svg width="16" height="112" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 0 Q4 6 8 12 T8 24 Q4 30 8 36 T8 48 Q4 54 8 60 T8 72 Q4 78 8 84 T8 96 Q4 102 8 108 L0 108 L0 0 Z"
+      fill="orange"></path>
+  </svg>
+
+  <div class="mx-3 w-full text-black">
+    <p class="mt-2 text-lg font-bold text-orange-600">
+      KEY BELLE 1.0
+    </p>
+    <p class="text-sm text-gray-600 leading-5">
+      KEY 3 DAY (TỐI ĐA 36 THIẾT BỊ)!<br>
+      <span class="font-semibold text-black">
+      Key : UNIT-liudzw4xa3m1yqoc
+      </span>
+    </p>
+  </div>
+
+  <button onclick="closeNotice()" class="w-14 flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="orange"
+      fill="none"
+      class="w-6 h-6 cursor-pointer">
+      <path d="M6 18L18 6M6 6l12 12"
+        stroke-linejoin="round"
+        stroke-linecap="round"/>
+    </svg>
+  </button>
+</div>
 
 <!-- LOADING -->
 <div id="loadingOverlay" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-[9999]">
@@ -129,71 +104,50 @@ transition:.3s;
 
 <header class="w-full flex justify-between items-center px-8 py-4 backdrop-blur-md bg-black/40 fixed top-0 z-50">
   <h1 class="text-xl font-bold tracking-wider">SUBIN DEV</h1>
-  <nav class="space-x-6 text-sm opacity-80">
-    <a href="https://zalo.me/0964074609" target="_blank" class="hover:text-blue-400">
-      Liên hệ
-    </a>
-  </nav>
 </header>
 
 <section class="pt-32 text-center px-6">
   <h2 class="text-4xl font-bold mb-4">
     TẢI HACK ĐỂ THUÊ KEY TẠI ĐÂY
   </h2>
-  <p class="opacity-70 max-w-xl mx-auto">
-    Sau Khi Mua Hack Bạn Có Thể Liên Hệ Để Thuê Key
-  </p>
 </section>
 
 <main class="min-h-[70vh] flex flex-wrap gap-10 items-center justify-center">
 
-<!-- CARD 1 -->
 <a href="https://drive.google.com/file/d/1kW8NNBSTP-BfUVPffCX_f_GvhLBU4qHK/view"
-class="download-card relative drop-shadow-xl w-56 h-72 overflow-hidden rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
+class="download-card relative w-56 h-72 rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
 
-<div class="absolute flex flex-col items-center justify-center text-white z-[1] opacity-95 rounded-2xl inset-1 bg-[#323132] gap-3">
-<img src="logo.jpg" class="w-24 h-24 object-cover rounded-xl shadow-lg">
-<h2 class="text-lg font-bold text-center px-2">
+<div class="absolute flex flex-col items-center justify-center text-white inset-1 bg-[#323132] gap-3 rounded-2xl">
+<img src="logo.jpg" class="w-24 h-24 object-cover rounded-xl">
+<h2 class="text-lg font-bold text-center">
 MENU IOS<br>ELLEN CHEAT 1.5
 </h2>
 </div>
-
-<div class="absolute w-64 h-52 bg-white blur-[60px] -left-1/2 -top-1/2 opacity-40"></div>
 </a>
 
-<!-- CARD 2 -->
 <a href="https://drive.google.com/file/d/19Ec3GSNeqqdiGWpvOntYereicIe7t4w_/view"
-class="download-card relative drop-shadow-xl w-56 h-72 overflow-hidden rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
+class="download-card relative w-56 h-72 rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
 
-<div class="absolute flex flex-col items-center justify-center text-white z-[1] opacity-95 rounded-2xl inset-1 bg-[#323132] gap-3">
-<img src="logo2.jpg" class="w-24 h-24 object-cover rounded-xl shadow-lg">
-<h2 class="text-lg font-bold text-center px-2">
+<div class="absolute flex flex-col items-center justify-center text-white inset-1 bg-[#323132] gap-3 rounded-2xl">
+<img src="logo2.jpg" class="w-24 h-24 object-cover rounded-xl">
+<h2 class="text-lg font-bold text-center">
 NO MENU IOS<br>HACK MAP
 </h2>
 </div>
-
-<div class="absolute w-64 h-52 bg-white blur-[60px] -left-1/2 -top-1/2 opacity-40"></div>
 </a>
 
-<!-- CARD 3 (MỚI) -->
 <a href="https://drive.google.com/file/d/1n02_xGi6KOVyG6sid6DNw8i2GF-vwN3W/view"
-class="download-card relative drop-shadow-xl w-56 h-72 overflow-hidden rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
+class="download-card relative w-56 h-72 rounded-2xl bg-[#3d3c3d] hover:scale-105 transition">
 
-<div class="absolute flex flex-col items-center justify-center text-white z-[1] opacity-95 rounded-2xl inset-1 bg-[#323132] gap-3">
-<img src="logo3.jpg" class="w-24 h-24 object-cover rounded-xl shadow-lg">
-<h2 class="text-lg font-bold text-center px-2">
+<div class="absolute flex flex-col items-center justify-center text-white inset-1 bg-[#323132] gap-3 rounded-2xl">
+<img src="logo3.jpg" class="w-24 h-24 object-cover rounded-xl">
+<h2 class="text-lg font-bold text-center">
 MENU IOS NEW<br>BELLE CHEAT 1.0
 </h2>
 </div>
-
-<div class="absolute w-64 h-52 bg-white blur-[60px] -left-1/2 -top-1/2 opacity-40"></div>
 </a>
 
 </main>
-
-<footer class="text-center py-6 opacity-60 text-sm">
-© Hack Chính Chủ Do Subin Làm.
-</footer>
 
 <script>
 const cards = document.querySelectorAll(".download-card");
@@ -211,6 +165,19 @@ cards.forEach(card => {
     }, 1500);
   });
 });
+
+/* 🔥 AUTO CLOSE NOTICE AFTER 10s */
+setTimeout(() => {
+  closeNotice();
+}, 10000);
+
+function closeNotice(){
+  const notice = document.getElementById("keyNotice");
+  if(notice){
+    notice.style.opacity = "0";
+    setTimeout(() => notice.remove(), 500);
+  }
+}
 </script>
 
 </body>
