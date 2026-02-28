@@ -208,7 +208,8 @@ let countdown = setInterval(function(){
     overlay.classList.add("active");
 
     setTimeout(()=>{
-      window.location.href = "index.html";
+      // ✅ chuyển sang trang nội dung (home)
+      window.location.replace("home.html");
     },800);
   }
 },1000);
