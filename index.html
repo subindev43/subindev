@@ -204,12 +204,10 @@ let countdown = setInterval(function(){
   if(timeLeft <= 0){
     clearInterval(countdown);
 
-    // Hiện overlay mượt
     overlay.classList.add("active");
 
     setTimeout(()=>{
-      // ✅ chuyển sang trang nội dung (home)
-      window.location.replace("home.html");
+      window.location.replace("/subindev/home.html");
     },800);
   }
 },1000);
