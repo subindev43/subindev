@@ -1,152 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>LOADING</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SUBIN IOS</title>
 
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #fff;
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+/* ===== Background ===== */
+.container{
+  min-height:100vh;
+  width:100%;
+  background:radial-gradient(ellipse at bottom,#1b2735 0%,#090a0f 100%);
+  overflow:hidden;
+  position:relative;
 }
 
-/* Overlay chuyển trang */
-.transition-screen {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  opacity: 0;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.8s ease;
-  z-index: 999;
+#stars,#stars2,#stars3{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
 }
 
-.transition-screen.active {
-  opacity: 1;
+#stars{
+  width:1px;height:1px;background:transparent;
+  box-shadow:501px 811px #fff,1450px 1324px #fff,1093px 1780px #fff;
+  animation:animStar 50s linear infinite;
+}
+#stars:after{
+  content:" ";position:absolute;top:2000px;
+  width:1px;height:1px;background:transparent;box-shadow:inherit;
 }
 
-/* Loader */
-.loader {
-  display: flex;
-  align-items: center;
+#stars2{
+  width:2px;height:2px;background:transparent;
+  box-shadow:1925px 1320px #fff,693px 1778px #fff;
+  animation:animStar 100s linear infinite;
+}
+#stars3{
+  width:3px;height:3px;background:transparent;
+  box-shadow:200px 981px #fff,1731px 521px #fff;
+  animation:animStar 150s linear infinite;
 }
 
-.bar {
-  display: inline-block;
-  width: 3px;
-  height: 20px;
-  background-color: rgba(255,255,255,.5);
-  border-radius: 10px;
-  animation: scale-up4 1s linear infinite;
+@keyframes animStar{
+  from{transform:translateY(0)}
+  to{transform:translateY(-2000px)}
 }
 
-.bar:nth-child(2) {
-  height: 35px;
-  margin: 0 5px;
-  animation-delay: .25s;
+/* Layout */
+.nav{
+  position:relative;
+  z-index:2;
+  padding:20px;
+  color:#fff;
+  text-align:center;
+  font-weight:bold;
 }
 
-.bar:nth-child(3) {
-  animation-delay: .5s;
+.hero{
+  position:relative;
+  z-index:2;
+  padding:40px 20px;
+  text-align:center;
+  color:#fff;
 }
 
-@keyframes scale-up4 {
-  20% { background-color: #fff; transform: scaleY(1.5); }
-  40% { transform: scaleY(1); }
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  max-width:1000px;   /* nhỏ lại chút cho gọn */
+  margin:60px auto 0; /* tạo khoảng cách phía trên */
 }
 
-/* Background */
-.cyber-pattern {
-  position: fixed;
-  inset: 0;
-  background-color: #050505;
-  background-image:
-    radial-gradient(circle at center, transparent 30%, #000 90%),
-    linear-gradient(rgba(3,233,244,0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(3,233,244,0.1) 1px, transparent 1px);
-  background-size: 100% 100%, 60px 60px, 60px 60px;
-  animation: cyber-move 10s linear infinite;
-  z-index: -1;
+.project-card{
+  background:rgba(255,255,255,.05);
+  border-radius:20px;
+  overflow:hidden;
+  transition:.4s;
+  backdrop-filter:blur(10px);
 }
 
-@keyframes cyber-move {
-  0% { background-position: 0 0,0 0,0 0; }
-  100% { background-position: 0 0,60px 60px,60px 60px; }
+.project-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,.5);
+}
+
+.project-card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+.project-info{
+  padding:15px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 18px;
+  border-radius:12px;
+  background:linear-gradient(45deg,#00c6ff,#0072ff);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 15px #00c6ff;
+}
+
+.contact{
+  margin-top:60px;
+  text-align:center;
+}
+
+.contact a{
+  display:inline-block;
+  padding:12px 20px;
+  background:#00c853;
+  color:#fff;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+footer{
+  margin-top:40px;
+  text-align:center;
+  color:rgba(255,255,255,.5);
+  font-size:13px;
 }
 </style>
 </head>
 
 <body>
+<div class="container">
 
-<div class="cyber-pattern"></div>
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
 
-<div class="h-full flex items-center justify-center text-center">
-  <div class="bg-black/40 border border-cyan-400 p-10 rounded-xl">
-    <h1 class="text-4xl mb-2">SUBIN AOV</h1>
-    <p>Đang vào hệ thống...</p>
+<header class="nav">
+SUBIN • IOS
+</header>
 
-    <div class="mt-3 text-cyan-400 text-xl">
-      Chuyển sau: <span id="time">10</span>s
-    </div>
-  </div>
+<section class="hero">
+<h1>TẢI IPA CHEAT</h1>
+<p>Danh sách ipa mới nhất.</p>
+
+<div class="projects">
+
+<div class="project-card">
+<img src="anh1.jpg">
+<div class="project-info">
+<h3>HACK KHÔNG MENU</h3>
+<a href="https://drive.google.com/uc?export=download&id=19Ec3GSNeqqdiGWpvOntYereicIe7t4w_" 
+class="btn" target="_blank">TẢI IPA</a>
+</div>
+</div>  
+
+<div class="project-card">
+<img src="anh2.jpg">
+<div class="project-info">
+<h3>MENU BELLE CHEAT</h3>
+<a href="https://drive.usercontent.google.com/download?id=1n02_xGi6KOVyG6sid6DNw8i2GF-vwN3W&export=download&authuser=0" 
+class="btn" target="_blank">TẢI IPA</a>
+</div>
 </div>
 
-<!-- YouTube button Tailwind -->
-<section class="fixed bottom-5 left-5 z-10">
-  <a
-    href="https://www.youtube.com/@SuBinGenZ"
-    target="_blank"
-    class="group flex justify-center p-3 rounded-md drop-shadow-xl bg-[#CD201F] text-white font-semibold hover:translate-y-3 hover:rounded-full transition-all duration-500"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 576 512" fill="currentColor">
-      <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
-    </svg>
+<div class="project-card">
+<img src="anh3.jpg">
+<div class="project-info">
+<h3>MENU ELLEN CHEAT</h3>
+<a href="https://drive.usercontent.google.com/download?id=1kW8NNBSTP-BfUVPffCX_f_GvhLBU4qHK&export=download&authuser=0" 
+class="btn" target="_blank">TẢI IPA</a>
+</div>
+</div>
 
-    <span class="absolute opacity-0 group-hover:opacity-100 group-hover:-translate-y-10 duration-700 text-sm">
-      Youtube
-    </span>
-  </a>
+</div>
+
+<div class="contact">
+<h2 style="margin-bottom:15px;">Liên Hệ Mua key</h2>
+<a href="https://zalo.me/0964074609" target="_blank">Liên hệ Zalo</a>
+</div>
+
+<footer>
+© 2026 SUBIN IOS
+</footer>
+
 </section>
-
-<!-- Overlay loader -->
-<div class="transition-screen" id="transition">
-  <div class="loader">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </div>
 </div>
-
-<script>
-let seconds = 10;
-const timeText = document.getElementById("time");
-const transition = document.getElementById("transition");
-
-const timer = setInterval(() => {
-  seconds--;
-  timeText.textContent = seconds;
-
-  if (seconds <= 0) {
-    clearInterval(timer);
-    transition.classList.add("active");
-
-    setTimeout(() => {
-      window.location.href = "content.html";
-    }, 1200);
-  }
-}, 1000);
-</script>
-
 </body>
 </html>
