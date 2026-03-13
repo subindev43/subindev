@@ -1,217 +1,327 @@
 <!doctype html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loading...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUBIN IOS</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;font-family:system-ui;background:#090a0f}
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-/* ===== Background ===== */
-.container{
-  position:fixed;
-  inset:0;
-  background:radial-gradient(ellipse at bottom,#1b2735 0%,#090a0f 100%);
-  overflow:hidden;
-  z-index:0;
-}
+    html,body{
+      min-height:100%;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Arial,sans-serif;
+      background:#f3f6fb;
+      color:#0f172a;
+    }
 
-/* Stars */
-#stars,#stars2,#stars3{
-  position:absolute;
-  inset:0;
-}
+    body{
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
 
-#stars{
-  width:1px;height:1px;background:transparent;
-  box-shadow:501px 811px #fff,1450px 1324px #fff,1093px 1780px #fff;
-  animation:animStar 50s linear infinite;
-}
-#stars:after{
-  content:" ";
-  position:absolute;
-  top:2000px;
-  width:1px;height:1px;
-  background:transparent;
-  box-shadow:inherit;
-}
+    .grid-wrapper{
+      min-height:100vh;
+      width:100%;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,.98), rgba(243,247,252,.96) 38%, rgba(235,241,249,.98) 100%);
+    }
 
-#stars2{
-  width:2px;height:2px;background:transparent;
-  box-shadow:1925px 1320px #fff,693px 1778px #fff;
-  animation:animStar 100s linear infinite;
-}
-#stars2:after{
-  content:" ";
-  position:absolute;
-  top:2000px;
-  width:2px;height:2px;
-  background:transparent;
-  box-shadow:inherit;
-}
+    .grid-background{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background-image:
+        linear-gradient(to right, #d9e3f0 1px, transparent 1px),
+        linear-gradient(to bottom, #d9e3f0 1px, transparent 1px);
+      background-size:24px 24px;
+      -webkit-mask-image:radial-gradient(ellipse 75% 62% at 50% 0%, #000 60%, transparent 100%);
+      mask-image:radial-gradient(ellipse 75% 62% at 50% 0%, #000 60%, transparent 100%);
+      opacity:.85;
+    }
 
-#stars3{
-  width:3px;height:3px;background:transparent;
-  box-shadow:200px 981px #fff,1731px 521px #fff;
-  animation:animStar 150s linear infinite;
-}
-#stars3:after{
-  content:" ";
-  position:absolute;
-  top:2000px;
-  width:3px;height:3px;
-  background:transparent;
-  box-shadow:inherit;
-}
+    .blur1,.blur2{
+      position:absolute;
+      border-radius:999px;
+      filter:blur(70px);
+      z-index:0;
+      opacity:.32;
+    }
 
-@keyframes animStar{
-  from{transform:translateY(0)}
-  to{transform:translateY(-2000px)}
-}
+    .blur1{
+      width:280px;
+      height:280px;
+      background:#7dd3fc;
+      top:-80px;
+      left:-60px;
+    }
 
-/* ===== Center Content ===== */
-.content{
-  position:relative;
-  z-index:2;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:#fff;
-}
+    .blur2{
+      width:260px;
+      height:260px;
+      background:#c4b5fd;
+      top:70px;
+      right:-60px;
+    }
 
-/* Title */
-h1{
-  font-size:40px;
-  letter-spacing:8px;
-  margin-bottom:30px;
-  font-weight:300;
-  background:linear-gradient(white,#38495a);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
+    .wrap{
+      position:relative;
+      z-index:2;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:30px 16px;
+    }
 
-/* Scanner Loading */
-.scanner span{
-  color:transparent;
-  font-size:1.4rem;
-  position:relative;
-  overflow:hidden;
-}
+    .card{
+      width:100%;
+      max-width:430px;
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(22px);
+      -webkit-backdrop-filter:blur(22px);
+      border:1px solid rgba(255,255,255,.9);
+      border-radius:36px;
+      box-shadow:
+        0 24px 60px rgba(15,23,42,.10),
+        inset 0 1px 0 rgba(255,255,255,.92);
+      padding:28px 22px 24px;
+      text-align:center;
+    }
 
-.scanner span::before{
-  content:"Loading...";
-  position:absolute;
-  top:0;
-  left:0;
-  width:0;
-  height:100%;
-  border-right:4px solid #17FEFF;
-  overflow:hidden;
-  color:#17FEFF;
-  animation:load91371 2s linear infinite;
-}
+    .app-icon{
+      width:110px;
+      height:110px;
+      margin:0 auto 16px;
+      border-radius:30px;
+      overflow:hidden;
+      border:3px solid rgba(255,255,255,.9);
+      box-shadow:
+        0 16px 34px rgba(37,99,235,.18),
+        0 6px 14px rgba(15,23,42,.08);
+      background:#fff;
+    }
 
-@keyframes load91371{
-  0%,10%,100%{width:0}
-  60%,80%{width:100%}
-}
+    .app-icon img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
 
-/* Countdown */
-.count{
-  margin-top:25px;
-  font-size:14px;
-  opacity:.7;
-}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 20px;
+      border-radius:999px;
+      border:1px solid #d7dfeb;
+      background:rgba(255,255,255,.8);
+      color:#2563eb;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.4px;
+      margin-bottom:20px;
+      box-shadow:0 4px 10px rgba(15,23,42,.04);
+    }
 
-/* ===== Smooth Transition Overlay ===== */
-.loader-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(9,10,15,0.98);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .6s ease;
-}
+    h1{
+      font-size:23px;
+      line-height:1.15;
+      font-weight:900;
+      letter-spacing:-0.03em;
+      color:#0f172a;
+      margin-bottom:12px;
+      text-transform:uppercase;
+    }
 
-.loader-overlay.active{
-  opacity:1;
-  pointer-events:all;
-}
+    .desc{
+      font-size:14px;
+      line-height:1.75;
+      color:#5b6b82;
+      margin-bottom:24px;
+      padding:0 6px;
+    }
 
-/* Spinner */
-.loader{
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-}
+    .preview{
+      border-radius:28px;
+      background:linear-gradient(180deg,#f9fbff 0%,#eef3fb 100%);
+      border:1px solid #dde6f0;
+      padding:14px;
+      margin-bottom:20px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.95),
+        0 8px 18px rgba(15,23,42,.03);
+    }
 
-@keyframes spin{
-  0%{
-    transform:rotate(0deg);
-    box-shadow:0 -2px 0 rgba(255,255,255,0.8);
-  }
-  100%{
-    transform:rotate(360deg);
-    box-shadow:0 -2px 0 rgba(255,255,255,0.8);
-  }
-}
-</style>
+    .preview-box{
+      border-radius:24px;
+      background:rgba(255,255,255,.92);
+      padding:16px;
+      text-align:left;
+      box-shadow:0 10px 24px rgba(15,23,42,.06);
+    }
+
+    .hero-shot{
+      width:100%;
+      display:block;
+      border-radius:22px;
+      border:1px solid #e5ebf3;
+      box-shadow:0 10px 24px rgba(15,23,42,.10);
+      margin-bottom:16px;
+    }
+
+    .app-title{
+      text-align:center;
+      font-size:18px;
+      font-weight:900;
+      color:#0f172a;
+      margin-bottom:6px;
+      letter-spacing:-0.02em;
+    }
+
+    .app-sub{
+      text-align:center;
+      font-size:14px;
+      line-height:1.55;
+      color:#64748b;
+      margin-bottom:16px;
+    }
+
+    .download-btn{
+      display:block;
+      width:100%;
+      text-align:center;
+      text-decoration:none;
+      padding:15px 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg,#0ea5e9 0%, #2563eb 55%, #3b82f6 100%);
+      color:#fff;
+      font-size:15px;
+      font-weight:900;
+      letter-spacing:.4px;
+      box-shadow:
+        0 14px 28px rgba(37,99,235,.24),
+        inset 0 1px 0 rgba(255,255,255,.24);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .download-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:
+        0 18px 34px rgba(37,99,235,.30),
+        inset 0 1px 0 rgba(255,255,255,.24);
+    }
+
+    .contact{
+      margin-top:8px;
+    }
+
+    .contact a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:0 16px;
+      text-decoration:none;
+      color:#0f172a;
+      font-size:14px;
+      font-weight:700;
+      border-radius:14px;
+      background:rgba(255,255,255,.76);
+      border:1px solid #dfe7f1;
+      box-shadow:0 4px 10px rgba(15,23,42,.04);
+      transition:transform .2s ease, background .2s ease;
+    }
+
+    .contact a:hover{
+      background:#fff;
+      transform:translateY(-2px);
+    }
+
+    footer{
+      margin-top:18px;
+      font-size:12px;
+      color:#94a3b8;
+      letter-spacing:.2px;
+    }
+
+    @media (max-width:480px){
+      .card{
+        border-radius:30px;
+        padding:22px 16px 20px;
+      }
+
+      .app-icon{
+        width:96px;
+        height:96px;
+        border-radius:26px;
+      }
+
+      h1{
+        font-size:20px;
+      }
+
+      .desc{
+        font-size:13px;
+      }
+
+      .preview-box{
+        padding:14px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="grid-wrapper">
+    <div class="grid-background"></div>
+    <div class="blur1"></div>
+    <div class="blur2"></div>
 
-<div class="container">
-  <div id="stars"></div>
-  <div id="stars2"></div>
-  <div id="stars3"></div>
-</div>
+    <div class="wrap">
+      <div class="card">
+        <div class="app-icon">
+          <img src="icon.jpg" alt="Icon ứng dụng">
+        </div>
 
-<div class="content">
-  <h1>SUBIN IOS</h1>
+        <div class="badge">SUBIN IOS</div>
 
-  <div class="scanner">
-    <span>Loading...</span>
+        <h1>TẢI MENU IOS</h1>
+        <p class="desc">
+          Menu Hack IOS, Bật Tắt Menu Bằng 3 Cách Táp 3 Ngón Tay Vào Màn Hình, Mua Key Liên Hệ Qua Zalo
+        </p>
+
+        <div class="preview">
+          <div class="preview-box">
+            <img src="menu.jpg" alt="Ảnh xem trước" class="hero-shot">
+
+            <div class="app-title">MENU SUBIN</div>
+            <div class="app-sub">Nhấn nút bên dưới để tải file IPA về máy</div>
+
+            <a
+              class="download-btn"
+              href="https://drive.google.com/uc?export=download&id=1di6V_cv24zBdsQSkc4pzVY5SWRvjl229"
+              target="_blank"
+            >
+              TẢI IPA NGAY
+            </a>
+          </div>
+        </div>
+
+        <div class="contact">
+          <a href="https://zalo.me/0964074609" target="_blank">Liên hệ Zalo</a>
+        </div>
+
+        <footer>© 2026 SUBIN IOS</footer>
+      </div>
+    </div>
   </div>
-
-  <div class="count">
-    Chuyển trang sau <span id="time">10</span>s
-  </div>
-</div>
-
-<!-- Smooth Loader Overlay -->
-<div class="loader-overlay" id="pageLoader">
-  <div class="loader"></div>
-</div>
-
-<script>
-let timeLeft = 10;
-let timeText = document.getElementById("time");
-let overlay = document.getElementById("pageLoader");
-
-let countdown = setInterval(function(){
-  timeLeft--;
-  timeText.textContent = timeLeft;
-
-  if(timeLeft <= 0){
-    clearInterval(countdown);
-
-    overlay.classList.add("active");
-
-    setTimeout(()=>{
-      window.location.replace("/subindev/home.html");
-    },800);
-  }
-},1000);
-</script>
-
 </body>
 </html>
