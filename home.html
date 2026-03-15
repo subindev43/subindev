@@ -82,7 +82,7 @@
 
     .card{
       width:100%;
-      max-width:430px;
+      max-width:470px;
       background:rgba(255,255,255,.78);
       backdrop-filter:blur(22px);
       -webkit-backdrop-filter:blur(22px);
@@ -150,12 +150,18 @@
       padding:0 6px;
     }
 
+    .download-list{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      margin-bottom:20px;
+    }
+
     .preview{
       border-radius:28px;
       background:linear-gradient(180deg,#f9fbff 0%,#eef3fb 100%);
       border:1px solid #dde6f0;
       padding:14px;
-      margin-bottom:20px;
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,.95),
         0 8px 18px rgba(15,23,42,.03);
@@ -169,17 +175,37 @@
       box-shadow:0 10px 24px rgba(15,23,42,.06);
     }
 
-    .hero-shot{
-      width:100%;
-      display:block;
-      border-radius:22px;
-      border:1px solid #e5ebf3;
-      box-shadow:0 10px 24px rgba(15,23,42,.10);
+    .item-top{
+      display:flex;
+      align-items:center;
+      gap:14px;
       margin-bottom:16px;
     }
 
+    .mini-icon{
+      width:72px;
+      height:72px;
+      border-radius:20px;
+      overflow:hidden;
+      flex-shrink:0;
+      background:#fff;
+      border:2px solid #eef2f7;
+      box-shadow:0 8px 20px rgba(15,23,42,.08);
+    }
+
+    .mini-icon img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .item-info{
+      flex:1;
+      text-align:left;
+    }
+
     .app-title{
-      text-align:center;
       font-size:18px;
       font-weight:900;
       color:#0f172a;
@@ -188,10 +214,17 @@
     }
 
     .app-sub{
-      text-align:center;
       font-size:14px;
       line-height:1.55;
       color:#64748b;
+    }
+
+    .hero-shot{
+      width:100%;
+      display:block;
+      border-radius:22px;
+      border:1px solid #e5ebf3;
+      box-shadow:0 10px 24px rgba(15,23,42,.10);
       margin-bottom:16px;
     }
 
@@ -276,6 +309,24 @@
       .preview-box{
         padding:14px;
       }
+
+      .item-top{
+        align-items:flex-start;
+      }
+
+      .mini-icon{
+        width:64px;
+        height:64px;
+        border-radius:18px;
+      }
+
+      .app-title{
+        font-size:16px;
+      }
+
+      .app-sub{
+        font-size:13px;
+      }
     }
   </style>
 </head>
@@ -288,31 +339,71 @@
     <div class="wrap">
       <div class="card">
         <div class="app-icon">
-          <img src="icon.jpg" alt="Icon ứng dụng">
+          <img src="icon.jpg" alt="Icon ứng dụng chính">
         </div>
 
         <div class="badge">SUBIN IOS</div>
 
         <h1>TẢI MENU IOS</h1>
         <p class="desc">
-          Menu Hack IOS, Bật Tắt Menu Bằng 3 Cách Táp 3 Ngón Tay Vào Màn Hình, Mua Key Liên Hệ Qua Zalo
+          Menu Hack IOS, bật tắt menu bằng 3 cách chạm 3 ngón tay vào màn hình.
+          Mua key liên hệ qua Zalo bên dưới.
         </p>
 
-        <div class="preview">
-          <div class="preview-box">
-            <img src="menu.jpg" alt="Ảnh xem trước" class="hero-shot">
+        <div class="download-list">
 
-            <div class="app-title">MENU SUBIN</div>
-            <div class="app-sub">Nhấn nút bên dưới để tải file IPA về máy</div>
+          <!-- MENU 1 -->
+          <div class="preview">
+            <div class="preview-box">
+              <div class="item-top">
+                <div class="mini-icon">
+                  <img src="icon.jpg" alt="Logo 1">
+                </div>
 
-            <a
-              class="download-btn"
-              href="https://drive.google.com/uc?export=download&id=1di6V_cv24zBdsQSkc4pzVY5SWRvjl229"
-              target="_blank"
-            >
-              TẢI IPA NGAY
-            </a>
+                <div class="item-info">
+                  <div class="app-title">MENU SUBIN 1</div>
+                  <div class="app-sub">Logo 1 · Ảnh menu 1 · Tải IPA 1</div>
+                </div>
+              </div>
+
+              <img src="menu.jpg" alt="Ảnh menu 1" class="hero-shot">
+
+              <a
+                class="download-btn"
+                href="https://drive.google.com/file/d/1aPBdHzfwExIMDp0HEYf5rle91dhMplmq/view"
+                target="_blank"
+              >
+                TẢI IPA 1
+              </a>
+            </div>
           </div>
+
+          <!-- MENU 2 -->
+          <div class="preview">
+            <div class="preview-box">
+              <div class="item-top">
+                <div class="mini-icon">
+                  <img src="icon2.jpg" alt="Logo 2">
+                </div>
+
+                <div class="item-info">
+                  <div class="app-title">MENU SUBIN 2</div>
+                  <div class="app-sub">Logo 2 · Ảnh menu 2 · Tải IPA 2</div>
+                </div>
+              </div>
+
+              <img src="menu2.jpg" alt="Ảnh menu 2" class="hero-shot">
+
+              <a
+                class="download-btn"
+                href="https://drive.google.com/file/d/18q2vj6sk8DJ8d3z5b6uxZ8m-0J5iA68R/view"
+                target="_blank"
+              >
+                TẢI IPA 2
+              </a>
+            </div>
+          </div>
+
         </div>
 
         <div class="contact">
